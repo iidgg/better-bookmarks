@@ -1,1 +1,1 @@
-This readme should have a good explanation about the thing. but no, i refuse to do it "now"
+don't worry i'll do it later 
