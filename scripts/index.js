@@ -1,6 +1,6 @@
-let folder_button = document.getElementById("folder_button");
-let bookmark_title = document.getElementById("bookmark_title");
-let bookmark_url = document.getElementById("bookmark_Url");
+const folder_button = document.getElementById("folder_button");
+const bookmark_title = document.getElementById("bookmark_title");
+const bookmark_url = document.getElementById("bookmark_Url");
 let folder_number = 0;
 async function random_function() {
   chrome.bookmarks.getTree().then((a, b, c) => {
