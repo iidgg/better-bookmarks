@@ -1,2 +1,1 @@
-# better-bookmarks
-just bone better bookmarks extension to improve chrome ew book marks
+This readme should have a good explanation about the thing. but no, i refuse to do it "now"
