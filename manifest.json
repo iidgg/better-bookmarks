@@ -7,6 +7,15 @@
 
   "action": {
     "default_popup": "popups/default.html",
-    "default_icon": "images/default.png"
-  }
+    "default_icon": {
+      "16": "images/default.png"
+    }
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["scripts/index.js"]
+    }
+  ]
 }
