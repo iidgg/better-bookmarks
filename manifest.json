@@ -3,6 +3,10 @@
   "name": "better-bookmarks",
   "version": "0.0.1",
 
-  "default_locale": "en",
-  "description": "This extension extend 'TODO: Make a description'"
+  "description": "This extension extend 'TODO: Make a description'",
+
+  "action": {
+    "default_popup": "popups/default.html",
+    "default_icon": "images/default.png"
+  }
 }
