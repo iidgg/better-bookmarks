@@ -1,5 +1,4 @@
 chrome.bookmarks.getTree().then((tree) => {
-  console.log(tree); //? << This gives u tree, yay have an apple
   goThroughBranch(tree);
 });
 
