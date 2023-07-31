@@ -10,6 +10,21 @@ console.log(localStorage);
 const tag_list = document.getElementById("tag-list");
 const tag_button = document.getElementById("tag-button");
 const tag_input = document.getElementById("tag-input");
+const character_limit = 40;
+
+tag_button.onclick = function () {
+    const tag = document.createElement("li");
+    if(tag_input.value === "") return;
+    if(tag_input.value.length > character_limit) return alert(`tag should not be more then ${character_limit} characters`);
+    tag.classList.add("tag");
+    tag.innerText = tag_input.value;
+    tag_list.appendChild(tag);
+    tag_input.value = "";
+}
+
+
+
+
 
 // Too early to code such a thing down there
 //
