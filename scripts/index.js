@@ -12,7 +12,15 @@ function goThroughBranch(array) {
     listElement.textContent = e.title || `"${e.url}"`;
 
     const cl = listElement.classList;
-    if (e.children) cl.add("bold");
+    if (e.children) {
+      cl.add("bold");
+
+      listElement.textContent = "";
+      const ulTitle = document.createElement("button");
+      ulTitle.textContent = e.title;
+
+      bookmarkList.appendChild(ulTitle);
+    }
 
     bookmarkList.appendChild(listElement);
     if (e.children && e.children.length > 0) goThroughBranch(e.children);
