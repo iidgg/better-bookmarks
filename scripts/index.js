@@ -1,39 +1,16 @@
-import { goThroughBranch } from "./functions.js";
+export const localStorage = chrome.storage.local;
 
-chrome.bookmarks.getTree().then((tree) => {
-  goThroughBranch(tree, function (e) {
-    const listElement = document.createElement(e.children ? "ul" : "li");
-    const bookmarkList = document.getElementById(`treeID-${e.parentId || "0"}`);
-    listElement.id = `treeID-${e.id}`;
-    listElement.textContent = e.title || `"${e.url}"`;
+console.log(localStorage);
 
-    const cl = listElement.classList;
-    if (e.children) {
-      cl.add("bold");
+//
+//
+//
 
-      listElement.textContent = "";
-      const ulTitle = document.createElement("button");
-      ulTitle.textContent = e.title;
-
-      bookmarkList.appendChild(ulTitle);
-    }
-
-    bookmarkList.appendChild(listElement);
-  });
-});
-
-
-
-
-
-// display tags 
-const second_popup = document.getElementById("second-popup");
-second_popup.addEventListener('click',() => {
-  console.log(chrome.browserAction)
-});
+// display tags
 const tag_list = document.getElementById("tag-list");
 const tag_button = document.getElementById("tag-button");
 const tag_input = document.getElementById("tag-input");
+
 // Too early to code such a thing down there
 //
 //
