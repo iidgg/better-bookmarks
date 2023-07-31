@@ -22,6 +22,18 @@ chrome.bookmarks.getTree().then((tree) => {
   });
 });
 
+
+
+
+
+// display tags 
+const second_popup = document.getElementById("second-popup");
+second_popup.addEventListener('click',() => {
+  console.log(chrome.browserAction)
+});
+const tag_list = document.getElementById("tag-list");
+const tag_button = document.getElementById("tag-button");
+const tag_input = document.getElementById("tag-input");
 // Too early to code such a thing down there
 //
 //
