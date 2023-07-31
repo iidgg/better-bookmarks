@@ -1,3 +1,5 @@
+import { goThroughBranch } from "./functions.js";
+
 chrome.bookmarks.getTree().then((tree) => {
   goThroughBranch(tree, function (e) {
     const listElement = document.createElement(e.children ? "ul" : "li");
@@ -19,18 +21,6 @@ chrome.bookmarks.getTree().then((tree) => {
     bookmarkList.appendChild(listElement);
   });
 });
-
-function goThroughBranch(array, callback) {
-  array.forEach((e) => {
-    if (e.id === "0") return goThroughBranch(e.children, callback);
-    callback(e);
-    if (e.children && e.children.length > 0)
-      goThroughBranch(e.children, callback);
-    // if its a folder it may have some children's so we go through
-    // it may also don't have any which will also cause the code to ignore it
-    // Because do we need code that we don't use?
-  });
-}
 
 // Too early to code such a thing down there
 //
