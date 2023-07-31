@@ -56,5 +56,13 @@ body {
   background-color: rgb(24, 20, 18);
   color:rgb(255, 255, 255);
 }
-  /* background-color: rgb(24, 20, 18);   */ /*active tag backrgound color*/
-  /* color:rgb(255, 255, 255); */ /*active tag text color*/
+#title-container{
+  width: 100%;
+  /* background: #000; */
+  display:flex;
+  justify-content: center;
+  gap: 1rem;
+}
+#icon-image{
+  align-self: center;
+}
