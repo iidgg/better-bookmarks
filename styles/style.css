@@ -12,7 +12,7 @@ body {
   background-color: #f0f0f0;
   min-width: 25rem;
 }
-#tag-list {
+#tag-list-container {
   display: flex;
   gap: 4px;
   flex-wrap: wrap;
@@ -29,8 +29,30 @@ body {
   padding: 0.7rem 1.2rem;
   transition: all 0.1s;
   display: flex;
+  user-select: none;
 }
 .active{
+  background-color: rgb(24, 20, 18);
+  color:rgb(255, 255, 255);
+}
+#tag-input{
+  border: 1px solid rgba(24, 20, 18, 0.12);
+  /* border-radius: 8px; */
+  padding: 0.5rem 1rem;
+  /* width: 100%; */
+  font-size: .9rem;
+  outline: none;
+}
+#tag-button{
+  cursor:pointer;
+  border: 1px solid rgba(24, 20, 18, 0.12);
+  /* border-radius: 8px; */
+  padding: 0.5rem 1rem;
+  /* width: 100%; */
+  font-size: .9rem;
+  outline: none;
+}
+#tag-button:hover{
   background-color: rgb(24, 20, 18);
   color:rgb(255, 255, 255);
 }

@@ -7,7 +7,7 @@ console.log(localStorage);
 //
 
 // display tags
-const tag_list = document.getElementById("tag-list");
+const tag_container = document.getElementById("tag-list-container");
 const tag_button = document.getElementById("tag-button");
 const tag_input = document.getElementById("tag-input");
 const character_limit = 40;
@@ -16,21 +16,25 @@ function createTag() {
   const tagValue = tag_input.value.trim();
   if (tagValue === "") return;
 
-
   if (tagValue.length > character_limit) {
     return alert(`Tag should not exceed ${character_limit} characters.`);
   }
-  
+
   const tag = document.createElement("li");
   tag.classList.add("tag");
   tag.innerText = tagValue;
-  tag_list.appendChild(tag);
-
+  tag_container.appendChild(tag);
   tag_input.value = "";
   tag.addEventListener("click", () => {
     tag.classList.toggle("active");
   });
+  
+  // tag remove on double click (not needed for now or find a better way to do it)
+  // tag.addEventListener("dblclick", () => {
+     // tag.remove();
+  // });
 }
+
 // create Tag on click
 tag_button.addEventListener("click", createTag);
 // create Tag when user press "Enter"
@@ -40,41 +44,6 @@ tag_input.addEventListener("keypress", function (event) {
     createTag();
   }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // Too early to code such a thing down there
 //
