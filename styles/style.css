@@ -16,6 +16,7 @@ body {
   display: flex;
   gap: 4px;
   flex-wrap: wrap;
+  padding:0;
 }
 .tag {
   cursor: pointer;
@@ -28,6 +29,10 @@ body {
   padding: 0.7rem 1.2rem;
   transition: all 0.1s;
   display: flex;
+}
+.active{
+  background-color: rgb(24, 20, 18);
+  color:rgb(255, 255, 255);
 }
   /* background-color: rgb(24, 20, 18);   */ /*active tag backrgound color*/
   /* color:rgb(255, 255, 255); */ /*active tag text color*/
