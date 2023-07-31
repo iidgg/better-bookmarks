@@ -2,9 +2,14 @@
 
 * {
   font-family: "Rubik", sans-serif;
+  font-weight: normal;
 }
 
 body {
   background-color: #f0f0f0;
   min-width: 18rem;
+}
+
+.bold {
+  font-weight: bold;
 }

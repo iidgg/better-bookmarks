@@ -11,6 +11,9 @@ function goThroughBranch(array) {
     listElement.id = `treeID-${e.id}`;
     listElement.textContent = e.title || `"${e.url}"`;
 
+    const cl = listElement.classList;
+    if (e.children) cl.add("bold");
+
     bookmarkList.appendChild(listElement);
     if (e.children && e.children.length > 0) goThroughBranch(e.children);
     // if its a folder it may have some children's so we go through
