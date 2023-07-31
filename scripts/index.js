@@ -7,7 +7,6 @@ function goThroughBranch(array) {
   array.forEach((e) => {
     if (e.id === "0") return goThroughBranch(e.children);
     const listElement = document.createElement(e.children ? "ul" : "li");
-    console.log(`treeID-${e.parentId || "0"}`);
     const bookmarkList = document.getElementById(`treeID-${e.parentId || "0"}`);
     listElement.id = `treeID-${e.id}`;
     listElement.textContent = e.title || `"${e.url}"`;
