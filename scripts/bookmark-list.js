@@ -27,13 +27,8 @@ chrome.bookmarks.getTree().then((tree) => {
   allFolders.forEach((ft) => {
     // ft = folder title (button)
     ft.addEventListener("click", (e) => {
-      console.log("hey (:");
       e.preventDefault();
-      // ft.classList.toggle("active-parent");
-      console.log(ft.for);
-      console.log(document.querySelector(`#${ft.for}`));
       document.querySelector(`#${ft.for}`).classList.toggle("active-parent");
-      // ft.parentNode.children.filter((child) => child !== ft);
     });
   });
 });
