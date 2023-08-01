@@ -1,13 +1,14 @@
-import { goThroughBranch } from "./functions.js";
-
+import { goThroughBranch , textLimiter} from "./functions.js";
 //? List the bookmarks
 chrome.bookmarks.getTree().then((tree) => {
   goThroughBranch(tree, function (e) {
     const listElement = document.createElement(e.children ? "ul" : "li");
     const bookmarkList = document.getElementById(`treeID-${e.parentId || "0"}`);
     listElement.id = `treeID-${e.id}`;
-    listElement.textContent = e.title || `"${e.url}"`;
 
+    // limit the text to 20 characters
+    listElement.textContent = textLimiter(e.title , 20);
+  
     if (e.children) {
       listElement.classList.add("bold", "parent-of-kids");
 
