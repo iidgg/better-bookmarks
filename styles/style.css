@@ -12,6 +12,10 @@ body {
   background-color: #f0f0f0;
   min-width: 25rem;
 }
+#tag-input-container{
+  display:flex;
+  justify-content:center;
+}
 #tag-list-container {
   display: flex;
   gap: 4px;
