@@ -1,12 +1,21 @@
 import { set, get, remove, getAll, removeAll } from "./storage.js";
 
 const tagsStorageName = "tags";
+let tags;
+initializeOperations();
+async function initializeOperations() {
+  tags = await get(tagsStorageName); // Initial tags
+  chrome.storage.sync.onChanged.addListener(async (changes, namespace) => {
+    if (!changes.tags) return;
+    if (!changes.tags.newValue) return (tags = await get(tagsStorageName));
+    tags = changes.tags.newValue;
+  });
+}
 
 export async function createTag(name) {
   if (!tagOperationHandler()) return false;
-  const tags = await get(tagsStorageName);
   const originalTagsLength = tags.length;
-  const sameTag = findTag(name);
+  const sameTag = await findTag(name);
   if (sameTag) return false;
   // ^^ Verify that no tag have the same name, tags have unique names
   tags.push(name);
@@ -18,9 +27,8 @@ export async function createTag(name) {
 
 export async function removeTag(name) {
   if (!tagOperationHandler()) return false;
-  const tags = await get(tagsStorageName);
   const originalTagsLength = tags.length;
-  const sameTag = findTag(name);
+  const sameTag = await findTag(name);
   if (!sameTag) return false;
   // ^^ Verify the tag existence
   const indexOfTag = tags.indexOf(name);
@@ -33,7 +41,6 @@ export async function removeTag(name) {
 
 export async function findTag(name) {
   if (!tagOperationHandler()) return false;
-  const tags = await get(tagsStorageName);
   const sameTag = await tags.find((tag) => tag === name);
   if (sameTag && sameTag.length > 0) return sameTag[0];
   return undefined;
@@ -41,7 +48,7 @@ export async function findTag(name) {
 
 async function debugAllTagOperations() {
   console.log(await get(tagsStorageName));
-  console.log(await createTag("coolTag"));
+  console.log("createTag Operation: ", await createTag("coolTag"));
 
   console.log(await get(tagsStorageName));
   console.log(await removeTag("coolTag"));
@@ -53,7 +60,6 @@ async function tagOperationHandler() {
   // Verify that the tags value is available in the storage
   //? Creates one if non are found
   // returns false in rare cases where the creation fails
-  const tags = await get(tagsStorageName);
   if (!tags) {
     const tagsCreate = await set(tagsStorageName, []);
     if (tagsCreate) return true;
