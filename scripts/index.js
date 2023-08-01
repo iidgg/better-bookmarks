@@ -1,7 +1,3 @@
-export const localStorage = chrome.storage.local;
-
-console.log(localStorage);
-
 //
 //
 //
@@ -28,10 +24,10 @@ function createTag() {
   tag.addEventListener("click", () => {
     tag.classList.toggle("active");
   });
-  
+
   // tag remove on double click (not needed for now or find a better way to do it)
   // tag.addEventListener("dblclick", () => {
-     // tag.remove();
+  // tag.remove();
   // });
 }
 
