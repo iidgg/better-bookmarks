@@ -39,7 +39,7 @@ body {
   background-color: rgb(24, 20, 18);
   color:rgb(255, 255, 255);
 }
-#tag-input{
+#tag-input{ /* , #bookmark-title */
   border: 1px solid rgba(24, 20, 18, 0.12);
   /* border-radius: 8px; */
   padding: 0.5rem 1rem;
@@ -47,7 +47,7 @@ body {
   font-size: .9rem;
   outline: none;
 }
-#tag-button{
+#tag-button , #bookmark-button{
   cursor:pointer;
   border: 1px solid rgba(24, 20, 18, 0.12);
   /* border-radius: 8px; */
@@ -56,7 +56,8 @@ body {
   font-size: .9rem;
   outline: none;
 }
-#tag-button:hover{
+#tag-button:hover ,
+#bookmark-button:hover{
   background-color: rgb(24, 20, 18);
   color:rgb(255, 255, 255);
 }
@@ -85,4 +86,14 @@ body {
   text-decoration: underline;
   text-underline-offset: 2px;
   text-decoration-thickness: 2px;
+}
+#bookmark-button{
+  width:68%;
+}
+#new-bookmark-container{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  margin-top:.7rem;
 }
