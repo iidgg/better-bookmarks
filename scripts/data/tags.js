@@ -54,8 +54,6 @@ async function debugAllTagOperations() {
   console.log(await removeTag("coolTag"));
 }
 
-debugAllTagOperations();
-
 async function tagOperationHandler() {
   // Verify that the tags value is available in the storage
   //? Creates one if non are found
