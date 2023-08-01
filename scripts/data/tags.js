@@ -32,7 +32,7 @@ export async function removeTag(name) {
 export async function findTag(name) {
   if (!tagOperationHandler()) return false;
   const tags = await get("tags");
-  return await tags.find((tag) => tag === name);
+  return await tags.find((tag) => tag === name)[0];
 }
 
 async function debugAllTagOperations() {
