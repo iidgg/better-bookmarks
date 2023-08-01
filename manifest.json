@@ -2,20 +2,16 @@
   "manifest_version": 3,
   "name": "better-bookmarks",
   "version": "0.0.1",
-  "permissions": [
-    "bookmarks",
-    "storage"
-  ],
+  "permissions": ["bookmarks", "storage"],
   "description": "This extension extend 'TODO: Make a description'",
 
   "action": {
     "default_popup": "popups/default.html",
     "default_icon": {
-      "16": "images/icons/better-bookmarks-16x16.png",
-      "32": "images/icons/better-bookmarks-32x32.png",
-      "48": "images/icons/better-bookmarks-48x48.png",
-      "128": "images/icons/better-bookmarks-128x128.png"
-    
+      "16": "images/logos/better-bookmarks-16x16.png",
+      "32": "images/logos/better-bookmarks-32x32.png",
+      "48": "images/logos/better-bookmarks-48x48.png",
+      "128": "images/logos/better-bookmarks-128x128.png"
     }
   },
 
