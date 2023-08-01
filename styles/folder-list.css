@@ -26,6 +26,7 @@
 }
 
 .folder-list button {
+  cursor: pointer;
   border: none;
 }
 
@@ -43,4 +44,18 @@
 
 .folder-list button:before {
   background-image: url("../images/icons/folder.svg");
+}
+
+.parent-of-kids {
+  height: 0;
+  overflow: scroll;
+  overflow-x: hidden;
+  -webkit-transition: all 300ms ease;
+  -moz-transition: all 300ms ease;
+  -o-transition: all 300ms ease;
+  transition: all 300ms ease;
+}
+
+.parent-of-kids.active-parent {
+  height: 116px;
 }

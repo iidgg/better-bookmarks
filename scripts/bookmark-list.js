@@ -8,17 +8,32 @@ chrome.bookmarks.getTree().then((tree) => {
     listElement.id = `treeID-${e.id}`;
     listElement.textContent = e.title || `"${e.url}"`;
 
-    const cl = listElement.classList;
     if (e.children) {
-      cl.add("bold");
+      listElement.classList.add("bold", "parent-of-kids");
 
       listElement.textContent = "";
       const ulTitle = document.createElement("button");
+      ulTitle.classList.add("folder-title");
       ulTitle.textContent = e.title;
+      ulTitle.for = listElement.id;
 
       bookmarkList.appendChild(ulTitle);
     }
 
     bookmarkList.appendChild(listElement);
+  });
+
+  const allFolders = document.querySelectorAll(".folder-list .folder-title");
+  allFolders.forEach((ft) => {
+    // ft = folder title (button)
+    ft.addEventListener("click", (e) => {
+      console.log("hey (:");
+      e.preventDefault();
+      // ft.classList.toggle("active-parent");
+      console.log(ft.for);
+      console.log(document.querySelector(`#${ft.for}`));
+      document.querySelector(`#${ft.for}`).classList.toggle("active-parent");
+      // ft.parentNode.children.filter((child) => child !== ft);
+    });
   });
 });
