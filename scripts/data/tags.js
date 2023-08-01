@@ -34,7 +34,9 @@ export async function removeTag(name) {
 export async function findTag(name) {
   if (!tagOperationHandler()) return false;
   const tags = await get(tagsStorageName);
-  return await tags.find((tag) => tag === name)[0];
+  const sameTag = await tags.find((tag) => tag === name);
+  if (sameTag && sameTag.length > 0) return sameTag[0];
+  return undefined;
 }
 
 async function debugAllTagOperations() {
