@@ -70,12 +70,16 @@ body {
 #icon-image{
   align-self: center;
 }
+#bookmarks_holder{
+  margin: 10px 0px;
+  display:flex;
+  justify-content: center;
+}
 #bookmarks_link{
   font-size:1rem;
   color: #000;
   text-decoration: none;
-  display:flex;
-  justify-content: flex-end;
+
 }
 #bookmarks_link:hover{
   text-decoration: underline;
