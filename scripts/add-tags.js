@@ -1,3 +1,4 @@
+import { removeAll } from "./data/storage.js";
 import { createTag, getAllTags, initializeOperations } from "./data/tags.js";
 
 const tagContainer = document.getElementById("tag-list-container");
@@ -43,6 +44,7 @@ function tagCreate(name) {
 //
 
 window.onload = async () => {
+  // removeAll(true); // to remove all the tags
   await initializeOperations();
   const allTags = await getAllTags();
   //   ^^ This will run too fast so we will init our selfs before the file does
