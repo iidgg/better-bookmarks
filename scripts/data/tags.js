@@ -46,6 +46,11 @@ export async function findTag(name) {
   return undefined;
 }
 
+export async function getAll() {
+  if (!tagOperationHandler()) return false;
+  return tags;
+}
+
 async function debugAllTagOperations() {
   console.log(await get(tagsStorageName));
   console.log("createTag Operation: ", await createTag("coolTag"));
