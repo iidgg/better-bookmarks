@@ -1,4 +1,5 @@
-// import {} from "./data/tags.js";
+import { createTag as summonTag, getAllTags } from "./data/tags.js";
+import { getAll } from "./data/storage.js";
 // ^^ Temp to run the file and debug the tag operations
 //
 //
@@ -10,7 +11,18 @@ const tag_button = document.getElementById("tag-button");
 const tag_input = document.getElementById("tag-input");
 const character_limit = 40;
 
-function createTag() {
+function summonTagElement(name) {
+  const tag = document.createElement("li");
+  tag.classList.add("tag");
+  tag.innerText = name;
+
+  tag.addEventListener("click", () => {
+    tag.classList.toggle("active");
+  });
+  return tag;
+}
+
+async function createTag() {
   const tagValue = tag_input.value.trim();
   if (tagValue === "") return;
 
@@ -18,14 +30,11 @@ function createTag() {
     return alert(`Tag should not exceed ${character_limit} characters.`);
   }
 
-  const tag = document.createElement("li");
-  tag.classList.add("tag");
-  tag.innerText = tagValue;
+  const tag = summonTagElement(tagValue);
+
+  await summonTag(tagValue);
   tag_container.appendChild(tag);
   tag_input.value = "";
-  tag.addEventListener("click", () => {
-    tag.classList.toggle("active");
-  });
 
   // tag remove on double click (not needed for now or find a better way to do it)
   // tag.addEventListener("dblclick", () => {
@@ -43,6 +52,14 @@ tag_input.addEventListener("keypress", function (event) {
   }
 });
 
+window.onload = async () => {
+  const allTags = await getAllTags();
+  if (!allTags || !allTags.length > 0) return;
+
+  allTags.forEach((e) => {
+    tag_container.append(summonTagElement(e));
+  });
+};
 // Too early to code such a thing down there
 //
 //
