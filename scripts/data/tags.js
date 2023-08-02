@@ -46,7 +46,7 @@ export async function findTag(name) {
   return undefined;
 }
 
-export async function getAll() {
+export async function getAllTags() {
   if (!tagOperationHandler()) return false;
   return tags;
 }
