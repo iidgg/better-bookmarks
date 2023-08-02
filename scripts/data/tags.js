@@ -3,8 +3,8 @@ import { set, get, remove, getAll, removeAll } from "./storage.js";
 const tagsStorageName = "tags";
 let tags;
 initializeOperations();
-async function initializeOperations() {
-  tags = await get(tagsStorageName); // Initial tags
+export async function initializeOperations() {
+  if (!tags) tags = await get(tagsStorageName); // Initial tags
   chrome.storage.sync.onChanged.addListener(async (changes, namespace) => {
     if (!changes.tags) return;
     if (!changes.tags.newValue) return (tags = await get(tagsStorageName));
