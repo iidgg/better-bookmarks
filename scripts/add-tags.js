@@ -7,9 +7,8 @@ const characterLimit = 40;
 
 async function handleTagCreation() {
   const tagValue = tagNameInput.value.trim();
-  if (tagValue.length < 0) return;
-
-  if (tagValue.length > characterLimit) {
+  if (tagValue === "") return; 
+   if (tagValue.length > characterLimit) {
     return alert(`Tag should not exceed ${characterLimit} characters.`);
     //TODO if we had time
   }
