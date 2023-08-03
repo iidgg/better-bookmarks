@@ -12,9 +12,11 @@ bookmark_button.addEventListener("click", () => {
     chrome.bookmarks.create({ title: tab.title, url: tab.url });
     // chrome.bookmarks.create({ title: bookmark_title.value || tab.title , url: tab.url })
     // bookmark_title.value = "";
+    let arr = [];
     for (let i = 0; i < bookmarkActive.length; i++) {
-      bookmarkObject.tags.push(bookmarkActive[i].innerText);
+      arr.push(bookmarkActive[i].innerText);
     }
+    bookmarkObject.tags.push(arr);
     console.log(bookmarkObject);
   });
 });
