@@ -36,6 +36,13 @@
 //
 //
 //
+// add tags and bookmarks to object 
+
+export const bookmarkObject = {
+    tags: [],
+    bookmarks: []
+}
+
 
 // async function create_bookmark_folder() {
 //   folder_number++;
