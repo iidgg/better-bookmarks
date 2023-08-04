@@ -37,7 +37,6 @@
 //
 //
 // add tags and bookmarks to object
-document.addEventListener("DOMContentLoaded", () => {
   const aTag = document.getElementById("bookmarks_link");
 
   aTag.addEventListener("click", () => {
@@ -45,7 +44,6 @@ document.addEventListener("DOMContentLoaded", () => {
       console.log("add-tags.html is opened");
     });
   });
-});
 // async function create_bookmark_folder() {
 //   folder_number++;
 //   chrome.bookmarks.create(
