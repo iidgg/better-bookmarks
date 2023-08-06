@@ -1,5 +1,5 @@
 import { get, set, remove, removeAll } from "./data/storage.js";
-const bookmarkObject = { bookmarks: [], tags: [] };
+const bookmarkObject = { bookmarks: []};
 
 export function manageBookmarkData(bookmarkActive , newBookmark){
     const arr = [];
@@ -19,16 +19,11 @@ export function manageBookmarkData(bookmarkActive , newBookmark){
           existingData.bookmarks = []; // if no bookmarks array is present, initialize it with an empty array
         }
     
-        if (!existingData.tags) {
-          existingData.tags = []; // some here but for tags
-        }
-    
         const existingUrls = existingData.bookmarks.map(
           (bookmark) => bookmark.url
         );
         if (!existingUrls.includes(newBookmark.url)) {
           existingData.bookmarks.push(newBookmark);
-          existingData.tags.push(arr);
           return set("bookmarkObject", existingData);
         }
 
@@ -36,5 +31,5 @@ export function manageBookmarkData(bookmarkActive , newBookmark){
       })
       .then(() => {
         get("bookmarkObject").then((data) => console.log(data));
-      });
+      });  
 }

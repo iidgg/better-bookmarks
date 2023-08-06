@@ -37,13 +37,17 @@
 //
 //
 // add tags and bookmarks to object
-  const aTag = document.getElementById("bookmarks_link");
-
+import { get, set, remove, removeAll } from "./data/storage.js";
+const aTag = document.getElementById("bookmarks_link");
+if (!aTag) {
+} else {
   aTag.addEventListener("click", () => {
     chrome.tabs.create({ url: "popups/bookmark-list.html" }, () => {
       console.log("add-tags.html is opened");
     });
   });
+}
+
 // async function create_bookmark_folder() {
 //   folder_number++;
 //   chrome.bookmarks.create(
