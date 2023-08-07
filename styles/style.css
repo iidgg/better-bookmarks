@@ -80,7 +80,7 @@ body {
   font-size:1rem;
   color: #000;
   text-decoration: none;
-
+  cursor: pointer;
 }
 #bookmarks_link:hover{
   text-decoration: underline;

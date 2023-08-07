@@ -37,7 +37,6 @@
 //
 //
 // add tags and bookmarks to object
-import { get, set, remove, removeAll } from "./data/storage.js";
 const aTag = document.getElementById("bookmarks_link");
 if (!aTag) {
 } else {
