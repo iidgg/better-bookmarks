@@ -17,7 +17,6 @@ export async function createTag(name) {
 }
 
 export async function removeTag(name) {
-  console.log("remove", name);
   if (!tagOperationHandler()) return false;
   const tags = await get(tagsStorageName);
   const originalTagsLength = tags.length;

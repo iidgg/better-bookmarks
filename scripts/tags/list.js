@@ -10,7 +10,6 @@ window.addEventListener("load", async () => {
 });
 
 export function actualList(tags) {
-  console.log(tags);
   if (!tags) return false;
   tags.forEach((e) => {
     tagContainer.append(tagElementCreate(e));
