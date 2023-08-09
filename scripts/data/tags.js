@@ -1,19 +1,10 @@
 import { set, get, remove, getAll, removeAll } from "./storage.js";
 
 const tagsStorageName = "tags";
-let tags;
-initializeOperations();
-export async function initializeOperations() {
-  if (!tags) tags = await get(tagsStorageName); // Initial tags
-  chrome.storage.sync.onChanged.addListener(async (changes, namespace) => {
-    if (!changes.tags) return;
-    if (!changes.tags.newValue) return (tags = await get(tagsStorageName));
-    tags = changes.tags.newValue;
-  });
-}
 
 export async function createTag(name) {
   if (!tagOperationHandler()) return false;
+  const tags = await get(tagsStorageName);
   const originalTagsLength = tags.length;
   const sameTag = await findTag(name);
   if (sameTag) return false;
@@ -26,7 +17,9 @@ export async function createTag(name) {
 }
 
 export async function removeTag(name) {
+  console.log("remove", name);
   if (!tagOperationHandler()) return false;
+  const tags = await get(tagsStorageName);
   const originalTagsLength = tags.length;
   const sameTag = await findTag(name);
   if (!sameTag) return false;
@@ -41,6 +34,7 @@ export async function removeTag(name) {
 
 export async function findTag(name) {
   if (!tagOperationHandler()) return false;
+  const tags = await get(tagsStorageName);
   const sameTag = await tags.find((tag) => tag === name);
   if (sameTag && sameTag.length > 0) return sameTag[0];
   return undefined;
@@ -48,7 +42,7 @@ export async function findTag(name) {
 
 export async function getAllTags() {
   if (!tagOperationHandler()) return false;
-  return tags;
+  return await get(tagsStorageName);
 }
 
 async function debugAllTagOperations() {
@@ -63,6 +57,9 @@ async function tagOperationHandler() {
   // Verify that the tags value is available in the storage
   //? Creates one if non are found
   // returns false in rare cases where the creation fails
+
+  const tags = await get(tagsStorageName);
+
   if (!tags) {
     const tagsCreate = await set(tagsStorageName, []);
     if (tagsCreate) return true;
