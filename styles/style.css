@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-@import url('./static.css');
-@import url('./folder-list.css');
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("./bookmark-list.css");
+@import url("./static.css");
+@import url("./folder-list.css");
 
 * {
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   font-weight: normal;
 }
 
@@ -12,15 +12,15 @@ body {
   background-color: #f0f0f0;
   min-width: 25rem;
 }
-#tag-input-container{
-  display:flex;
-  justify-content:center;
+#tag-input-container {
+  display: flex;
+  justify-content: center;
 }
 #tag-list-container {
   display: flex;
   gap: 4px;
   flex-wrap: wrap;
-  padding:0;
+  padding: 0;
 }
 .tag {
   cursor: pointer;
@@ -35,65 +35,67 @@ body {
   display: flex;
   user-select: none;
 }
-.active{
+.active {
   background-color: rgb(24, 20, 18);
-  color:rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
 }
-#tag-input{ /* , #bookmark-title */
+#tag-input {
+  /* , #bookmark-title */
   border: 1px solid rgba(24, 20, 18, 0.12);
   /* border-radius: 8px; */
   padding: 0.5rem 1rem;
   /* width: 100%; */
-  font-size: .9rem;
+  font-size: 0.9rem;
   outline: none;
 }
-#tag-button , #bookmark-button{
-  cursor:pointer;
+#tag-button,
+#bookmark-button {
+  cursor: pointer;
   border: 1px solid rgba(24, 20, 18, 0.12);
   /* border-radius: 8px; */
   padding: 0.5rem 1rem;
   /* width: 100%; */
-  font-size: .9rem;
+  font-size: 0.9rem;
   outline: none;
 }
-#tag-button:hover ,
-#bookmark-button:hover{
+#tag-button:hover,
+#bookmark-button:hover {
   background-color: rgb(24, 20, 18);
-  color:rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
 }
-#title-container{
+#title-container {
   width: 100%;
   /* background: #000; */
-  display:flex;
+  display: flex;
   justify-content: center;
   gap: 1rem;
 }
-#icon-image{
+#icon-image {
   align-self: center;
 }
-#bookmarks_holder{
+#bookmarks_holder {
   margin: 10px 0px;
-  display:flex;
+  display: flex;
   justify-content: center;
 }
-#bookmarks_link{
-  font-size:1rem;
+#bookmarks_link {
+  font-size: 1rem;
   color: #000;
   text-decoration: none;
   cursor: pointer;
 }
-#bookmarks_link:hover{
+#bookmarks_link:hover {
   text-decoration: underline;
   text-underline-offset: 2px;
   text-decoration-thickness: 2px;
 }
-#bookmark-button{
-  width:68%;
+#bookmark-button {
+  width: 68%;
 }
-#new-bookmark-container{
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  margin-top:.7rem;
+#new-bookmark-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.7rem;
 }
