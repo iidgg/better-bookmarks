@@ -10,7 +10,7 @@ bookmark_button.addEventListener("click", () => {
     for (let i = 0; i < bookmarkActive.length; i++) {
       arr.push(bookmarkActive[i].innerText);
     }
-    const newBookmark = { title: tab.title, url: tab.url , tags: arr };
+    const newBookmark = { title: tab.title, url: tab.url, tags: arr };
     // call managebookmarkdata function to save the data to the storage
     manageBookmarkData(bookmarkActive, newBookmark);
   });

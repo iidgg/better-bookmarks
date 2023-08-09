@@ -3,9 +3,9 @@ const bookmarkObject = { bookmarks: [] };
 
 export function manageBookmarkData(bookmarkActive, newBookmark) {
   const arr = [];
-  bookmarkActive.forEach((e) => {
+  for (var i = 0; i < bookmarkActive.length; i++) {
     arr.push(bookmarkActive[i].innerText);
-  });
+  }
   // get data (bookmarkObject) and then add it to the array and then set it to the storage again
 
   get("bookmarkObject")
