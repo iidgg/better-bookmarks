@@ -4,7 +4,7 @@ import { bookmarkELement, folderElement } from "./element.js";
 
 chrome.bookmarks.getTree().then((tree) => {
   goThroughBranch(tree, async function (treeElement) {
-    console.log("new operation");
+    // console.log("new operation"); i don't think we need this 999999 console.log messages >:(
     try {
       let elements;
       const id = treeElement.id;

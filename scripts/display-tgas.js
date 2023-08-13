@@ -4,19 +4,25 @@ const bookmarkContainer = document.getElementById("bookmark-container");
 const tagListContainer = document.getElementById("tag-list-container");
 
 async function fetchData() {
-  try {
-    const [tags, values] = await Promise.all([
-      get("tags"),
-      get("bookmarkObject")
-    ]);
-
-    displayBookmarks(values.bookmarks);
-    displayTags(tags);
-    setupTagClickListeners();
-  } catch (error) {
-    console.error("Error fetching data:", error);
+    const values = await get("bookmarkObject")
+    const tags = await get("tags");
+    
+    // display tags
+    if(tags === undefined){
+      tagListContainer.innerHTML = `<li>No tags</li>`;
+    }else{
+      displayTags(tags);
+      setupTagClickListeners();
+    }
+    // display bookmarks
+    if(values === undefined){
+      bookmarkContainer.innerHTML = `<li>No bookmarks</li>`;
+    }else{
+      displayBookmarks(values.bookmarks);
+    }
+    
   }
-}
+
 
 function displayBookmarks(bookmarks) {
   bookmarkContainer.innerHTML = bookmarks
