@@ -1,5 +1,5 @@
 import { get, set, remove, removeAll } from "./data/storage.js";
-
+import {textLimiter} from "./functions.js";
 const bookmarkContainer = document.getElementById("bookmark-container");
 const tagListContainer = document.getElementById("tag-list-container");
 
@@ -15,21 +15,21 @@ async function fetchData() {
       setupTagClickListeners();
     }
     // display bookmarks
+    // values === undefined ? bookmarkContainer.innerHTML = "<li>No bookmarks</li>" : displayBookmarks(values.bookmarks);
     if(values === undefined){
-      bookmarkContainer.innerHTML = `<li>No bookmarks</li>`;
-    }else{
+      bookmarkContainer.innerHTML = "<li>No bookmarks</li>";
+    }{
       displayBookmarks(values.bookmarks);
     }
-    
   }
 
 
 function displayBookmarks(bookmarks) {
-  bookmarkContainer.innerHTML = bookmarks
-    .map(bookmark =>`<li><a href="${bookmark.url}">${bookmark.title}<span>tags: ${bookmark.tags.join(" ")}</span></a></li>`).join("");
+  bookmarkContainer.innerHTML = bookmarks.map(bookmark =>`<li><a href="${bookmark.url}">${textLimiter(bookmark.title , 45)} <span>tags: ${bookmark.tags.join(" ")}</span></a></li>`).join("");
 }
 
 function displayTags(tags) {
+  
   tagListContainer.innerHTML = tags
     .map(tag => `<li class="liContainer"><span>${tag}</span></li>`)
     .join("");
