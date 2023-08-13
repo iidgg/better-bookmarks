@@ -5,7 +5,7 @@ tagDelete.addEventListener("click", () => {
   for (let i = 0; i < tags.length; i++) {
     tags[i].classList.toggle("t-delete");
     if (tags[i].classList.contains("t-delete")) {
-      tags[i].innerHTML += `<img src="../images/icons/trash.png" />`;
+      tags[i].innerHTML += `<img src="../images/icons/trash.svg" />`;
     }else{
         tags[i].innerHTML = tags[i].innerHTML.slice(0, -37);
     }

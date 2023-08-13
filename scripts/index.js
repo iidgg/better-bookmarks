@@ -37,6 +37,7 @@
 //
 //
 // add tags and bookmarks to object
+import { removeAll } from "./data/storage.js";
 const aTag = document.getElementById("bookmarks_link");
 if (!aTag) {
 } else {
@@ -44,6 +45,9 @@ if (!aTag) {
     chrome.tabs.create({ url: "popups/bookmark-list.html" }, () => {
       console.log("add-tags.html is opened");
     });
+  });
+  document.getElementById("removeAll").addEventListener("click", () => {
+    removeAll(true);
   });
 }
 

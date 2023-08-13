@@ -1,5 +1,5 @@
-import { manageBookmarkData } from "./bookmark-data-management.js";
-import { removeAll } from "./data/storage.js";
+import { manageBookmarkData } from "./../../bookmark-data-management.js";
+// import { removeAll } from "./data/storage.js";
 
 const bookmarkActive = document.getElementsByClassName("active");
 const bookmark_button = document.getElementById("bookmark-button");
