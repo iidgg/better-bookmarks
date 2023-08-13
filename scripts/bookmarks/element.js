@@ -17,7 +17,7 @@ export function folderElement(id, title) {
   ulTitle.classList.add("folder-title");
   ulTitle.textContent = title;
   //  ulTitle.textContent += ` (${e.children.length})`; // add the number of children to the folder title
-  //? ^^^ is it that important to make a parameter for it? i don't think so
+  //? ^^^ is it that important to make a parameter for it? i don't think so ,> fine >:( 
   ulTitle.for = folderElement.id;
 
   return [ulTitle, folderElement];

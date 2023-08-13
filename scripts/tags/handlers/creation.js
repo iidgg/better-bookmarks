@@ -11,12 +11,11 @@ async function handleTagCreation() {
   if (tagValue.length > characterLimit) {
     return alert(`Tag should not exceed ${characterLimit} characters.`);
     
-    //TODO if we had time
+    //TODO if we had time (add a prompt)
   }
 
   const tag = tagElementCreate(tagValue);
   
-
   createTag(tagValue)
     .then(() => {
       tagNameInput.value = "";
