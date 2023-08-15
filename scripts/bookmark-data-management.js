@@ -13,7 +13,7 @@ export function manageBookmarkData(bookmarkActive, newBookmark) {
       if (!existingData) {
         existingData = bookmarkObject; // if no data is present, initialize it with an empty object (bookmarkObject)
       }
-
+      
       if (!existingData.bookmarks) {
         existingData.bookmarks = []; // if no bookmarks array is present, initialize it with an empty array
       }
