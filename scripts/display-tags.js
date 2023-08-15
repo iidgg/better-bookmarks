@@ -1,5 +1,6 @@
 import { get, set, remove, removeAll } from "./data/storage.js";
 import {textLimiter} from "./functions.js";
+import {prepareFrame} from "./prepare-frames.js";
 const bookmarkContainer = document.getElementById("bookmark-container");
 const tagListContainer = document.getElementById("tag-list-container");
 
@@ -26,7 +27,8 @@ async function fetchData() {
 
 function displayBookmarks(bookmarks) {
   bookmarkContainer.innerHTML = bookmarks.map(bookmark =>`<li><a href="${bookmark.url}">${textLimiter(bookmark.title , 45)} <span>tags: ${bookmark.tags.join(" ")}</span></a></li>`).join("");
-}
+  bookmarks.map(bookmark => bookmarkContainer.appendChild(prepareFrame(bookmark.url)));
+} 
 
 function displayTags(tags) {
   
