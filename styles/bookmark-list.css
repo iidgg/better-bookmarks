@@ -18,7 +18,7 @@
 .liContainer {
   display: grid;
   grid-template-columns: auto 1fr;
-  grid-gap: 0.625rem; /* Adjust the value to add space between the image and text */
+  /* grid-gap: 0.625rem; Adjust the value to add space between the image and text */
   align-items: center;
   border: 1px solid #ccc;
   margin: 5px;
@@ -33,10 +33,10 @@
 .liContainer svg {
   fill: white; /* Set SVG color to white */
   width: 100%;
-  margin-right: 0.5rem; /* Adjust the value to add space between the image and text */
+  margin: 0rem 0.325rem; /* Adjust the value to add space between the image and text */
 }
 
-.liContainer:hover {
+.liContainerHover:hover {
   background-color: rgb(24, 20, 18);
   color: rgb(255, 255, 255);
 }

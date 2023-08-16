@@ -33,7 +33,7 @@ function displayBookmarks(bookmarks) {
 function displayTags(tags) {
   
   tagListContainer.innerHTML = tags
-    .map(tag => `<li class="liContainer"><span>${tag}</span></li>`)
+    .map(tag => `<li class="liContainer liContainerHover"><span>${tag}</span></li>`)
     .join("");
 }
 
