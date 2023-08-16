@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "better-bookmarks",
   "version": "0.0.1",
-  "permissions": ["bookmarks", "tabs", "storage" , "activeTab" , "unlimitedStorage"],
+  "permissions": ["bookmarks", "tabs", "storage" , "activeTab"],
   "description": "This extension extend 'TODO: Make a description'",
 
   "action": {
