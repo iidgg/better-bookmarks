@@ -1,6 +1,6 @@
 import { get, set, remove, removeAll } from "./data/storage.js";
 import {textLimiter} from "./functions.js";
-import {prepareFrame} from "./prepare-frames.js";
+// import {prepareFrame} from "./prepare-frames.js";  // no need for now 
 const bookmarkContainer = document.getElementById("bookmark-container");
 const tagListContainer = document.getElementById("tag-list-container");
 
@@ -16,7 +16,7 @@ async function fetchData() {
       setupTagClickListeners();
     }
     // display bookmarks
-    // values === undefined ? bookmarkContainer.innerHTML = "<li>No bookmarks</li>" : displayBookmarks(values.bookmarks);
+    values === undefined ? bookmarkContainer.innerHTML = "<li>No bookmarks</li>" : displayBookmarks(values.bookmarks);
     if(values === undefined){
       bookmarkContainer.innerHTML = "<li>No bookmarks</li>";
     }{
@@ -27,7 +27,7 @@ async function fetchData() {
 
 function displayBookmarks(bookmarks) {
   bookmarkContainer.innerHTML = bookmarks.map(bookmark =>`<li><a href="${bookmark.url}">${textLimiter(bookmark.title , 45)} <span>tags: ${bookmark.tags.join(" ")}</span></a></li>`).join("");
-  bookmarks.map(bookmark => bookmarkContainer.appendChild(prepareFrame(bookmark.url)));
+  // bookmarks.map(bookmark => bookmarkContainer.appendChild(prepareFrame(bookmark.url)));
 } 
 
 function displayTags(tags) {
