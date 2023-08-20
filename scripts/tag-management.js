@@ -21,21 +21,22 @@ tagDelete.addEventListener("click", () => {
 });
 
 function removeTags(arr) {
+  // loop through all tags and add event listener
   for (let i = 0; i < arr.length; i++) {
     arr[i].addEventListener("click", (event) => {
-      const tag = event.currentTarget;
-      if (tag.classList.contains("t-delete")) {
+      const tag = event.currentTarget; // the tag that was clicked
+      if (tag.classList.contains("t-delete")) { // check if it contain "t-delete"
         const span = tag.querySelector("span");
-        if (span && span.innerText) {
+        if (span && span.innerText) { // check if it has a span and text
           const tagText = span.innerText;
-          get("tags").then((tags) => {
-            let newTags = tags.filter((tag) => tag !== tagText);
-            return newTags;
-          }).then((newTags) => {
-            remove("tags");
+          get("tags").then((tags) => { // get tags from storage
+            let newTags = tags.filter((tag) => tag !== tagText); // filter out the tag and remove the tag that was clicked from the array
+            return newTags; // return the new array
+          }).then((newTags) => { // set the new array to storage
+            remove("tags"); // remove the old array
             set("tags", newTags);
           });
-          span.parentElement.remove();
+          span.parentElement.remove(); // remove the element from the dom
         }
       }
     });
