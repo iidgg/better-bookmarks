@@ -28,6 +28,7 @@
 
 .t-delete {
   background-color: #ffebee;
+  cursor: pointer;
 }
 
 .liContainer svg {

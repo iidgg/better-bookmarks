@@ -19,7 +19,7 @@ async function fetchData() {
     values === undefined ? bookmarkContainer.innerHTML = "<li>No bookmarks</li>" : displayBookmarks(values.bookmarks);
     if(values === undefined){
       bookmarkContainer.innerHTML = "<li>No bookmarks</li>";
-    }{
+    }else{
       displayBookmarks(values.bookmarks);
     }
   }

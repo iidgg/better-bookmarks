@@ -1,6 +1,7 @@
+import { remove , get , set } from "./data/storage.js";
 const tagDelete = document.getElementById("tag-delete");
-const tagEdit = document.getElementById("tag-edit");
 const tags = document.getElementsByClassName("liContainer");
+const tDelete = document.getElementsByClassName("t-delete");
 
 tagDelete.addEventListener("click", () => {
   for (let i = 0; i < tags.length; i++) {
@@ -16,5 +17,24 @@ tagDelete.addEventListener("click", () => {
       }
       tags[i].classList.add("liContainerHover");
     }
+    if (tags[i].classList.contains("t-edit")) {
+      tags[i].classList.remove("t-edit");
+    }
+  }
+  for (let i = 0; i < tDelete.length; i++) {
+    tDelete[i].addEventListener("click", (event) => {
+      const span = event.currentTarget.querySelector("span");
+      if (span && span.innerText) {
+        const tagText = span.innerText;
+        get("tags").then((tags) => {
+         let newTags = tags.filter((tag) => tag !== tagText);
+          return newTags;
+        }).then((newTags) => {
+          remove("tags")
+          set("tags", newTags);
+        });
+          span.parentElement.remove();
+      }
+    });
   }
 });
