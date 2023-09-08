@@ -6,6 +6,7 @@
 * {
   font-family: "Rubik", sans-serif;
   font-weight: normal;
+  /* outline:1px solid yellowgreen; */
 }
 
 body {
@@ -13,7 +14,11 @@ body {
   min-width: 25rem;
 }
 #tag-input-container {
+  margin:0 auto;
+  width:80%;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
 }
 #tag-list-container {
@@ -39,7 +44,7 @@ body {
   background-color: rgb(24, 20, 18);
   color: rgb(255, 255, 255);
 }
-#tag-input {
+#tag-input , #bookmark_title {
   /* , #bookmark-title */
   border: 1px solid rgba(24, 20, 18, 0.12);
   /* border-radius: 8px; */
@@ -48,6 +53,11 @@ body {
   font-size: 0.9rem;
   outline: none;
 }
+#bookmark_title{
+  margin-top:10px;
+  width:calc(100% - 57px)
+}
+
 #tag-button,
 #bookmark-button {
   cursor: pointer;
@@ -99,3 +109,4 @@ body {
   align-items: center;
   margin-top: 0.7rem;
 }
+
